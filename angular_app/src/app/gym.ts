@@ -1,0 +1,22 @@
+export class Gym {
+  id:number;
+  name:string;
+  address:string;
+  city:string;
+  price_year:number;
+  price_month:number;
+  price_3months:number;
+  price_6months:number;
+  offers:string;
+  facilities:string;
+  spa:boolean;
+  trx:boolean;
+  crossfit:boolean;
+  yoga:boolean;
+  pilates:boolean;
+  zumba:boolean;
+  women_only:boolean;
+  pool:boolean;
+  sauna:boolean;
+  parking:boolean;
+}

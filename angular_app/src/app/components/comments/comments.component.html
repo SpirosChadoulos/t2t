@@ -1,0 +1,49 @@
+<div class="container">
+  <h3>Comments</h3>
+
+  <div class="row justify-content-start" *ngIf="auth.isLoggedIn">
+    <div class="col-4">
+      <form (ngSubmit)="onSubmit()" #commentForm="ngForm">
+
+        <div class="form-group">
+          <label for="content">Write your comment</label>
+          <textarea class="form-control"
+                    rows="5"
+                    id="content"
+                    [(ngModel)]="comment.content"
+                    name="content">
+            </textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+      </form>
+    </div>
+  </div>
+
+  <br>
+
+  <!--<div class="row justify-content-start">-->
+    <!--<div class="col-4">-->
+      <!--<ul>-->
+        <!--<li *ngFor="let comment of comments">-->
+          <!--{{ comment.content }}-->
+        <!--</li>-->
+      <!--</ul>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <div class="row justify-content-start">
+    <div class="col-4">
+      <div class="panel panel-default" *ngFor="let comment of comments">
+        <div class="panel-heading">
+          <strong>{{comment.username}}</strong> <span class="text-muted">commented on {{comment.timestamp.substring(0,10)}} {{comment.timestamp.substring(11,16)}}</span>
+        </div>
+        <div class="panel-body">
+          {{comment.content}}
+        </div><!-- /panel-body -->
+      </div><!-- /panel panel-default -->
+    </div>
+  </div>
+
+</div>

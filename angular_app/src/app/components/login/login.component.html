@@ -1,0 +1,76 @@
+<!--<ngb-tabset id = "tabset">-->
+  <!--<ngb-tab title="Login">-->
+    <!--<ng-template ngbTabContent>-->
+        <!--<form>-->
+          <!--<fieldset>-->
+            <!--<div class="form-group">-->
+              <!--&lt;!&ndash;<label>Username</label>&ndash;&gt;-->
+              <!--<input class="form-control" placeholder="Username">-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+              <!--&lt;!&ndash;<label>Password</label>&ndash;&gt;-->
+              <!--<input class="form-control" type="password" placeholder="Password">-->
+            <!--</div>-->
+            <!--<button type="submit" class="btn btn-primary">Login</button>-->
+          <!--</fieldset>-->
+        <!--</form>-->
+    <!--</ng-template>-->
+  <!--</ngb-tab>-->
+  <!--<ngb-tab title="Register">-->
+    <!--<ng-template ngbTabContent>-->
+      <!--<form>-->
+        <!--<fieldset>-->
+          <!--<div class="form-group">-->
+            <!--&lt;!&ndash;<label>Username</label>&ndash;&gt;-->
+            <!--<input class="form-control" placeholder="Username">-->
+          <!--</div>-->
+          <!--<div class="form-group">-->
+            <!--<input type="email" class="form-control" placeholder="Email">-->
+          <!--</div>-->
+          <!--<div class="form-group">-->
+            <!--&lt;!&ndash;<label>Password</label>&ndash;&gt;-->
+            <!--<input class="form-control" type="password" placeholder="Password">-->
+          <!--</div>-->
+          <!--<div class="form-group">-->
+            <!--&lt;!&ndash;<label>Password</label>&ndash;&gt;-->
+            <!--<input class="form-control" type="password" placeholder="Confirm Password">-->
+          <!--</div>-->
+          <!--<button type="submit" class="btn btn-primary">Register</button>-->
+        <!--</fieldset>-->
+      <!--</form>-->
+    <!--</ng-template>-->
+  <!--</ngb-tab>-->
+<!--</ngb-tabset>-->
+
+<div class="container">
+
+
+  <span [ngSwitch]="auth.isLoggedIn">
+    <span *ngSwitchCase="false">
+      <form class="form-signin">
+        <!--<h2 class="form-signin-heading">Please sign in</h2>-->
+        <label for="username" class="sr-only">Username</label>
+        <input #username
+               type="text" id="username" class="form-control"
+               placeholder="Username" required="" autofocus="">
+        <br>
+        <label for="password" class="sr-only">Password</label>
+        <input #password
+               type="password" id="password" class="form-control"
+               placeholder="Password" required="">
+
+        <button (click)="login(username.value, password.value)"
+                class="btn btn-lg btn-primary btn-block"
+                type="submit">Log in</button>
+      </form>
+    </span>
+    <span *ngSwitchCase="true">
+      <form class="form-signin">
+        <button (click)="logout()"
+                class="btn btn-lg btn-primary btn-block">Logout</button>
+      </form>
+    </span>
+  </span>
+
+
+</div>

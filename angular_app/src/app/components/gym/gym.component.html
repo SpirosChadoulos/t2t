@@ -1,0 +1,38 @@
+
+<div class="container">
+
+
+  <h1 class="mb20">
+    <h1>Search Results</h1>
+    <h2 class="lead"><strong class="text-danger">{{gyms?.length}}</strong>{{gyms?.length==1 ? ' result was found' : ' results were found'}} </h2>
+  </h1>
+  <section class="col-xs-12 col-sm-6 col-md-12" *ngFor="let gym of gyms">
+    <article class="search-result row">
+      <div class="col-xs-12 col-sm-12 col-md-3">
+        <a href="#" title="Lorem ipsum" class="thumbnail"><img src="http://www.body-by-rick.com/functionalfitness2_phixr.jpg" alt="Lorem ipsum" /></a>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-2">
+        <ul class="meta-search">
+          <li><i class="glyphicon glyphicon-map-marker"></i> <span>{{gym?.city}}</span></li>
+          <li><i class="glyphicon glyphicon-map-marker"></i> <span>{{gym?.address}}</span></li>
+        </ul>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
+        <h3><a routerLink="/detail/{{gym.id}}" title="">{{gym?.name}}</a></h3>
+        <ngb-rating [(rate)]="currentRate">
+          <ng-template let-fill="fill">
+            <span class="star" [class.filled]="fill === 100">&#9733;</span>
+          </ng-template>
+        </ngb-rating>
+        <hr>
+        <p>{{gym?.facilities}}</p>
+        <p>{{gym?.offers}}</p>
+
+      </div>
+      <span class="clearfix borda"></span>
+    </article>
+  </section>
+</div>
+
+
+

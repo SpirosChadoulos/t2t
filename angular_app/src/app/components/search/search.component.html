@@ -1,0 +1,69 @@
+<ngb-tabset id = "tabset">
+  <ngb-tab title="Search for Gym">
+    <ng-template ngbTabContent>
+
+        <div>
+          <div class="form-group">
+            <div id="search-component">
+              <input placeholder="Name" class="form-control" #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+              <ul class="search-result">
+                <li *ngFor="let gym of gyms$ | async" >
+                  <!--<a routerLink="/detail/{{book.id}}">-->
+                    <!--{{book.title}}-->
+                  <!--</a>-->
+                  <a>{{gym.name}}</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="form-group">
+            <div id="search-city-component">
+              <input placeholder="City" class="form-control" #searchCityBox id="search-city-box" (keyup)="search(searchCityBox.value)" />
+              <ul class="search-result">
+                <li *ngFor="let gym of gyms$ | async" >
+                  <!--<a routerLink="/detail/{{book.id}}">-->
+                  <!--{{book.title}}-->
+                  <!--</a>-->
+                  <a>{{gym.city}}</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="btn btn-primary btn-block">Spa <input type="checkbox" #spa id="spa" class="badgebox"><span class="badge"><div class="glyphicon glyphicon-ok"></div></span></label>
+          </div>
+          <div class="form-group">
+            <label class="btn btn-primary btn-block">Trx <input type="checkbox" #trx id="trx" class="badgebox"><span class="badge"><div class="glyphicon glyphicon-ok"></div></span></label>
+          </div>
+          <div class="form-group">
+            <label class="btn btn-primary btn-block">Crossfit <input type="checkbox" #crossfit id="crossfit" class="badgebox"><span class="badge"><div class="glyphicon glyphicon-ok"></div></span></label>
+          </div>
+          <div class="form-group">
+            <label class="btn btn-primary btn-block">Yoga <input type="checkbox" #yoga id="yoga" class="badgebox"><span class="badge"><div class="glyphicon glyphicon-ok"></div></span></label>
+          </div>
+          <div class="form-group">
+            <label class="btn btn-primary btn-block">Pilates <input type="checkbox" #pilates id="pilates" class="badgebox"><span class="badge"><div class="glyphicon glyphicon-ok"></div></span></label>
+          </div>
+          <div class="form-group">
+            <label class="btn btn-primary btn-block">Zumba <input type="checkbox" #zumba id="zumba" class="badgebox"><span class="badge"><div class="glyphicon glyphicon-ok"></div></span></label>
+          </div>
+          <div class="form-group">
+            <label class="btn btn-primary btn-block">Only for women <input type="checkbox" #women id="women" class="badgebox"><span class="badge"><div class="glyphicon glyphicon-ok"></div></span></label>
+          </div>
+          <div class="form-group">
+            <label class="btn btn-primary btn-block">Pool <input type="checkbox" #pool id="pool" class="badgebox"><span class="badge"><div class="glyphicon glyphicon-ok"></div></span></label>
+          </div>
+          <div class="form-group">
+            <label class="btn btn-primary btn-block">Sauna <input type="checkbox" #sauna id="sauna" class="badgebox"><span class="badge"><div class="glyphicon glyphicon-ok"></div></span></label>
+          </div>
+          <div class="form-group">
+            <label class="btn btn-primary btn-block">Parking <input type="checkbox" #parking id="parking" class="badgebox"><span class="badge"><div class="glyphicon glyphicon-ok"></div></span></label>
+          </div>
+
+          <button (click)="filter(searchBox.value,searchCityBox.value,spa.checked,trx.checked,crossfit.checked,yoga.checked,pilates.checked,zumba.checked,women.checked,pool.checked,sauna.checked,parking.checked)"  (click)="reloadData('search')" class="btn btn-primary">Search</button>
+
+        </div>
+
+    </ng-template>
+  </ngb-tab>
+</ngb-tabset>
